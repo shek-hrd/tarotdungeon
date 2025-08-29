@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dragon's Nest - Tarot Dungeon</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <!-- Top HUD -->
+            <div id="top-hud">
+                <div id="player-info">
+                    <span id="player-name">Player</span>
+                    <span id="room-name">Starting Room</span>
+                </div>
+                <div id="card-counter">
+                    <span>Cards Drawn: <span id="cards-count">0</span></span>
+                </div>
+            </div>
+            
+            <!-- Bottom HUD -->
+            <div id="bottom-hud">
+                <div id="current-card">
+                    <div id="card-display">
+                        <div id="card-name">No Card Drawn</div>
+                        <div id="card-meaning">Draw a card to begin your journey</div>
+                    </div>
+                </div>
+                <div id="controls-hint">
+                    <span>WASD: Move | Mouse: Look | Space: Draw Card | Enter: Chat</span>
+                </div>
+            </div>
+            
+            <!-- Chat System -->
+            <div id="chat-container">
+                <div id="chat-messages"></div>
+                <input type="text" id="chat-input" placeholder="Type a message..." maxlength="100">
+            </div>
+            
+            <!-- Tarot Card Display -->
+            <div id="tarot-overlay" class="hidden">
+                <div id="tarot-card-large">
+                    <div id="tarot-card-name"></div>
+                    <div id="tarot-card-image"></div>
+                    <div id="tarot-card-description"></div>
+                    <button id="close-tarot">Close</button>
+                </div>
+            </div>
+            
+            <!-- Menu -->
+            <div id="menu-overlay" class="hidden">
+                <div id="menu-content">
+                    <h2>The Dragon's Nest</h2>
+                    <button id="start-game">Start Game</button>
+                    <button id="settings-btn">Settings</button>
+                    <button id="about-btn">About</button>
+                </div>
+            </div>
+            
+            <!-- Settings Panel -->
+            <div id="settings-overlay" class="hidden">
+                <div id="settings-content">
+                    <h3>Settings</h3>
+                    <label>
+                        Graphics Quality:
+                        <select id="graphics-quality">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </label>
+                    <label>
+                        Narrator Voice:
+                        <select id="narrator-voice">
+                            <option value="default">Default</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="enable-narrator" checked>
+                        Enable Narrator
+                    </label>
+                    <button id="close-settings">Close</button>
+                </div>
+            </div>
+            
+            <!-- Loading Screen -->
+            <div id="loading-screen">
+                <div id="loading-content">
+                    <h1>The Dragon's Nest</h1>
+                    <div id="loading-spinner"></div>
+                    <p id="loading-text">Entering the mystical realm...</p>
+                </div>
+            </div>
+            
+            <!-- Narrator Bubble -->
+            <div id="narrator-bubble" class="hidden">
+                <div id="narrator-text"></div>
+                <div id="narrator-name">Grandma Rose</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="js/tarot.js"></script>
+    <script src="js/dungeon.js"></script>
+    <script src="js/narrator.js"></script>
+    <script src="js/multiplayer.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
