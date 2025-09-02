@@ -35,7 +35,7 @@ class MultiplayerManager {
         }, 2000);
         
         this.updatePlayerList();
-        if (typeof narrator !== "undefined" && narrator.welcomePlayer) narrator.welcomePlayer(this.playerName);
+        narrator.welcomePlayer(this.playerName);
     }
     
     addSimulatedPlayer(name) {
@@ -47,7 +47,7 @@ class MultiplayerManager {
             room: 'room_0'
         });
         
-        if (typeof narrator !== "undefined" && narrator.playerJoined) narrator.playerJoined(name);
+        narrator.playerJoined(name);
         this.updatePlayerList();
     }
     
@@ -66,7 +66,7 @@ class MultiplayerManager {
             });
         }
         
-        const container = document.getElementById('playerList'); if (container) container.style.display = 'block';
+        document.getElementById('playerList').style.display = 'block';
     }
     
     movePlayer(playerId, position, roomId) {
@@ -99,7 +99,7 @@ class MultiplayerManager {
     
     disconnect() {
         this.connected = false;
-        if (typeof narrator !== "undefined" && narrator.playerLeft) narrator.playerLeft(this.playerName);
+        narrator.playerLeft(this.playerName);
     }
     
     getPlayerCount() {
