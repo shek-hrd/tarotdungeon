@@ -60,7 +60,7 @@ class MultiplayerManager {
                 div.className = 'player-item';
                 div.textContent = player.name;
                 if (player.id === this.playerId) {
-                    div.style.fontWeight = 'bold';
+                    div.classList.add('current');
                 }
                 playerList.appendChild(div);
             });
